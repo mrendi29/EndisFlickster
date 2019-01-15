@@ -41,8 +41,10 @@ public class MovieActivity extends AppCompatActivity {
 
         //Bind the adapter to the data source to populate the RecyclerView
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
+
         //We have not declared movies as a new arraylist  so we dont crash (because it was null)
         movies = new ArrayList<>();
+
         //Create an instance of the movies adapter that we just wrote.
         final MoviesAdapter adapter = new MoviesAdapter(this, movies);
         //Add a layout manager into the recycle view so the recycle view knows how to put the items on the screen.
