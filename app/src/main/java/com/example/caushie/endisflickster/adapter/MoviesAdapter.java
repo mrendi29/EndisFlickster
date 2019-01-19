@@ -96,6 +96,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             tvOverview.setText(movie.getOverview());
 
 
+            //The reason progress bar was not working is because i had two different IDs for the xml layouts.
             myProgressBar.setVisibility(View.VISIBLE);
 //            myprogressBar2.setVisibility(View.VISIBLE);
             Glide.with(context).load(imageUrl).listener(new RequestListener<Drawable>() {
