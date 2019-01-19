@@ -1,5 +1,3 @@
-# EndisFlickster
-This is a movie browsing app that fetches data from the web and displays it in a scrolling feed
 # Flix
 Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 ---
