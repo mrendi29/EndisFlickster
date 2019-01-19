@@ -2,16 +2,23 @@ package com.example.caushie.endisflickster.adapter;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.caushie.endisflickster.R;
 
 import java.util.List;
@@ -63,6 +70,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
+        ProgressBar myProgressBar;
+        ProgressBar myprogressBar2;
+
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -72,6 +82,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+            myProgressBar = itemView.findViewById(R.id.progressBar);
+            //myprogressBar2 = itemView.findViewById(R.id.progressBar2);
+
         }
 
         public void bind(Movie movie) {
@@ -81,7 +94,26 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             }
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
-            Glide.with(context).load(imageUrl).into(ivPoster);
+
+
+            myProgressBar.setVisibility(View.VISIBLE);
+//            myprogressBar2.setVisibility(View.VISIBLE);
+            Glide.with(context).load(imageUrl).listener(new RequestListener<Drawable>() {
+                @Override
+                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                    myProgressBar.setVisibility(View.GONE);
+                    myprogressBar2.setVisibility(View.GONE);
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                    myprogressBar2.setVisibility(View.GONE);
+                    myProgressBar.setVisibility(View.GONE);
+                    return false;
+                }
+            })
+                    .into(ivPoster);
 
         }
     }

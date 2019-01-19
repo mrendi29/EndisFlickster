@@ -18,6 +18,7 @@ public class Movie {
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
         backDropPath = jsonObject.getString("backdrop_path");
+
     }
 
     // 2. Create a list of movies and then populate it with JsonObjects from the JsonArray instance we got in the movieActivity
