@@ -1,6 +1,7 @@
 package com.example.caushie.endisflickster.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
@@ -14,13 +15,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.caushie.endisflickster.DetailActivity;
 import com.example.caushie.endisflickster.R;
 
 import java.util.List;
@@ -96,12 +97,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
 
+            //Create the container to pass data through activities.
+            //Add click listener on the whole row.
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Succes", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, DetailActivity.class);
+                    context.startActivity(i);
+
                 }
             });
+
 
             //The reason progress bar was not working is because i had two different IDs for the xml layouts.
             myProgressBar.setVisibility(View.VISIBLE);
