@@ -24,6 +24,8 @@ import com.bumptech.glide.request.target.Target;
 import com.example.caushie.endisflickster.DetailActivity;
 import com.example.caushie.endisflickster.R;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import model.Movie;
@@ -89,7 +91,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
         }
 
-        public void bind(Movie movie) {
+        public void bind(final Movie movie) {
             String imageUrl = movie.getPosterPath();
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackDropPath();
@@ -103,7 +105,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, DetailActivity.class);
+
+                    i.putExtra("movie", Parcels.wrap(movie));
+
+
                     context.startActivity(i);
+
 
                 }
             });
