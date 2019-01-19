@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -71,9 +73,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         TextView tvOverview;
         ImageView ivPoster;
         ProgressBar myProgressBar;
-        ProgressBar myprogressBar2;
-
-
+        RelativeLayout container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,7 +83,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             myProgressBar = itemView.findViewById(R.id.progressBar);
-            //myprogressBar2 = itemView.findViewById(R.id.progressBar2);
+            container = itemView.findViewById(R.id.rvLayout);
+
 
         }
 
@@ -95,21 +96,27 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
 
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "Succes", Toast.LENGTH_SHORT).show();
+                }
+            });
 
             //The reason progress bar was not working is because i had two different IDs for the xml layouts.
             myProgressBar.setVisibility(View.VISIBLE);
-//            myprogressBar2.setVisibility(View.VISIBLE);
+
             Glide.with(context).load(imageUrl).listener(new RequestListener<Drawable>() {
                 @Override
                 public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-//                    myProgressBar.setVisibility(View.GONE);
-                    myprogressBar2.setVisibility(View.GONE);
+
+                    myProgressBar.setVisibility(View.GONE);
                     return false;
                 }
 
                 @Override
                 public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-//                    myprogressBar2.setVisibility(View.GONE);
+
                     myProgressBar.setVisibility(View.GONE);
                     return false;
                 }
