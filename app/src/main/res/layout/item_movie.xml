@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rvLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/black">
 
     <ImageView
         android:id="@+id/ivPoster"
@@ -21,6 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="39dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="@android:color/background_light"
         android:textSize="24sp"
         tools:text="A Star is Born" />
 
@@ -31,6 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="81dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="@android:color/background_light"
         tools:text="Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world." />
 
     <ProgressBar
