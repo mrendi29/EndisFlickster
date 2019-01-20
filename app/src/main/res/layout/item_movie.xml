@@ -40,7 +40,7 @@
         android:layout_marginTop="81dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:ellipsize="end"
-        android:maxLines="8"
+        android:maxLines="7"
         android:minLines="5"
         android:textColor="@android:color/background_light"
         tools:text="Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis,

@@ -17,6 +17,7 @@
 
     <TextView
         android:id="@+id/tvTitle"
+        android:layout_marginStart="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,16 +25,24 @@
         android:layout_toEndOf="@+id/ivPoster"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:minLines="1"
+        android:singleLine="true"
         tools:text="A Star is Born" />
 
     <TextView
         android:id="@+id/tvOverview"
+        android:layout_marginStart="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="81dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textColor="@android:color/background_light"
+        android:ellipsize="end"
+        android:maxLines="6"
+        android:minLines="4"
         tools:text="Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world." />
 
     <ProgressBar
