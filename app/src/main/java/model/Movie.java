@@ -16,6 +16,9 @@ public class Movie {
     String backDropPath;
     double rating;
 
+
+    int movieId;
+
     //Empty constructor needed for parcel
     public Movie() {
     }
@@ -26,6 +29,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         backDropPath = jsonObject.getString("backdrop_path");
         rating = jsonObject.getDouble("vote_average");
+        movieId = jsonObject.getInt("id");
 
     }
 
@@ -59,6 +63,10 @@ public class Movie {
 
     public Float getRating() {
         return (float) rating;
+    }
+
+    public int getMovieId() {
+        return movieId;
     }
 }
 
