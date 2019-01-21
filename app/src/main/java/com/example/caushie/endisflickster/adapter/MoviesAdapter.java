@@ -45,7 +45,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d("Smile", "onCreateViewHolder");
-        //onCreateViewHolder is responsible for inflating the  xml we created and the result is a view.
+        //onCreateViewHolder is responsible for inflating the  xml we created and the result is a view. which is done only once
         View view = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
 
         //returns a new view  holder with that particular view by calling the constructor.

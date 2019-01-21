@@ -25,6 +25,7 @@ public class MovieActivity extends AppCompatActivity {
     private static  String MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed ";
     // We will create the list of movies (data model) and we will use it to display the movies into the screen.
 
+
     List<Movie> movies;
     //Key steps using a Recycler View.
     //Add RecyclerView support library to the gradle build file Done
@@ -32,7 +33,7 @@ public class MovieActivity extends AppCompatActivity {
     //Add a RecyclerView to your activity to display the items -Done
     //Create a custom row layout XML file to visualize the item -Done
     //Create a RecyclerView.Adapter and ViewHolder to render the item -Done
-    //Bind the adapter to the data source to populate the RecyclerView
+    //Bind the adapter to the data source to populate the RecyclerView -Done
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,9 @@ public class MovieActivity extends AppCompatActivity {
 
                     //   movies = Movie.fromJsonArray(movieJsonArray);
 
+                    //Then after all the movie objects are added on the other method
+                    //the list of objects is passed here
+                    // and the adapter is notified of the changes so they can be displayed.
                     movies.addAll(Movie.fromJsonArray(movieJsonArray));
 
                     adapter.notifyDataSetChanged();
