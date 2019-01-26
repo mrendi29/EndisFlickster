@@ -65,6 +65,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     //the nwe get the key which corresponds to the movie  by calling the method
                     String youtubeKey = movieTrailer.getString("key");
                     initializeYoutube(youtubeKey);
+                 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -83,8 +84,15 @@ public class DetailActivity extends YouTubeBaseActivity {
     private void initializeYoutube(final String youtubeKey) {
         youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, final YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("youtube", "success");
+
+                if (movie.getRating() > 7) {
+                    youTubePlayer.setFullscreen(true);
+
+                }
+
+
                 youTubePlayer.cueVideo(youtubeKey);
             }
 

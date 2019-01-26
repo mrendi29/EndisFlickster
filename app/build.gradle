@@ -36,4 +36,7 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.11'
     annotationProcessor 'org.parceler:parceler:1.1.11'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    //Adding butterfly Knife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }
