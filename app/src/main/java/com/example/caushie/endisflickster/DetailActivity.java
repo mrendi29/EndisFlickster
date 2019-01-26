@@ -65,7 +65,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     //the nwe get the key which corresponds to the movie  by calling the method
                     String youtubeKey = movieTrailer.getString("key");
                     initializeYoutube(youtubeKey);
-                 
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
